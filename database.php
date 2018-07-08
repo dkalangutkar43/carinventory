@@ -49,7 +49,7 @@ class car_inventory_db
 			$sTableData .= "<tr id='tr_".$o["model_id"]."'>";
 			$sTableData .= "<td>$i</td>";
 			$sTableData .= "<td>".$o["manufacturer_name"]."</td>";
-			$sTableData .= "<td>".$o["model_name"]."</td>";//<input type="text" id="row_'.$o["model_id"].'" value="'.$o["model_count"].'"/>
+			$sTableData .= "<td>".$o["model_name"]."</td>";
 			$sTableData .= '<td style="display:none;"><input type="text" id="row_'.$o["model_id"].'" value="'.$o["model_count"].'"/></td>';
 			$sTableData .= '<td id="td_'.$o["model_id"].'">'.$o["model_count"].'</td>';
 			$sTableData .= '<td><button type="button" onclick="soldaction('.$o["model_id"].')">Sold</button></td>';
