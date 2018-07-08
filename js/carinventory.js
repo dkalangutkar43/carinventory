@@ -11,7 +11,7 @@ function open_view()
 	document.getElementById("manufacture").style.display = "none";
 	document.getElementById("model").style.display = "none";
 	document.getElementById("view_inventory").style.display = "";
-	viewinventory();
+	//viewinventory();
 }
 
 function viewinventory()
@@ -80,6 +80,7 @@ function validate_model()
 function soldaction(id)
 {
 	var count = document.getElementById("row_"+id).value;
+	console.log(count);
 	if(count > 0)
 	{		
 		var soldcount  = count - 1;
@@ -105,12 +106,11 @@ function soldaction(id)
 }
 
 
-
+$(document).ready( function () {
+    $('#example').DataTable();
+} );
 
 $(document).ready(function(){	
-
-	$('#example').DataTable();
-	 
     $("#manu_butt").click(function()
 	{
 		var status = validate_manu();
@@ -156,6 +156,7 @@ $(document).ready(function(){
 					if(result == 1){
 						alert("Model Added Successfully!");
 						document.getElementById("modelname").value = "";
+						document.location.reload();
 					} else {
 						document.getElementById("modelname").focus();
 					}

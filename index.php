@@ -1,7 +1,13 @@
+<?php
+require_once "common.php";
+$model_object = new model();
+$data = $model_object->get_model_data();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Mini Car Inventory System</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -100,14 +106,26 @@
 						<th>Action</th>
 					</tr>
 				</thead>
-				<tbody id="view_inventory_table">
-					
+				<tbody>
+				<?php 
+					$i = 1;
+					foreach($data as $val)
+					{
+				?>
+						<tr id="tr_<?php echo $val['model_id'];?>">
+							<td><?php echo $i;?></td>
+							<td><?php echo $val['manufacturer_name'];?></td>
+							<td><input type="hidden" id="row_<?php echo $val['model_id'];?>" value="<?php echo $val['model_count'];?>"/><?php echo $val['model_name'];?></td>
+							<td id="td_<?php echo $val['model_id'];?>"><?php echo $val['model_count'];?></td>
+							<td><button type="button" onclick="soldaction(<?php echo $val['model_id'];?>)">Sold</button></td>
+						</tr>
+				<?php
+						$i++;
+					}
+				?>
 				</tbody>
 			</table>
 		</div>
-		
-		
-		
 	</div>
   </div>
 </div>
