@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `car_inventory`
 --
-
+CREATE DATABASE car_inventory;
 -- --------------------------------------------------------
 
 --
