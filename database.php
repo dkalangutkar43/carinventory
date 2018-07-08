@@ -43,19 +43,8 @@ class car_inventory_db
 	{
 		$q = "select * from model as m join manufacturer as mu on m.manufacturer_id = mu.manufacturer_id";
 		$r = mysqli_query($this->connection_db,$q);		
-		//$sTableData = "";
-		//$i = 1;
 		$sTableDataarray = array();
 		while ($o = mysqli_fetch_array($r)) {			
-			/*$sTableData .= "<tr id='tr_".$o["model_id"]."'>";
-			$sTableData .= "<td>$i</td>";
-			$sTableData .= "<td>".$o["manufacturer_name"]."</td>";
-			$sTableData .= "<td>".$o["model_name"]."</td>";//<input type="text" id="row_'.$o["model_id"].'" value="'.$o["model_count"].'"/>
-			$sTableData .= '<td style="display:none;"><input type="text" id="row_'.$o["model_id"].'" value="'.$o["model_count"].'"/></td>';
-			$sTableData .= '<td id="td_'.$o["model_id"].'">'.$o["model_count"].'</td>';
-			$sTableData .= '<td><button type="button" onclick="soldaction('.$o["model_id"].')">Sold</button></td>';
-			$sTableData .= "</tr>";
-			$i++;*/
 			$sTableDataarray[] = $o;
 		}
 		return $sTableDataarray;

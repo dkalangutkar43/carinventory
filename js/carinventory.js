@@ -11,23 +11,7 @@ function open_view()
 	document.getElementById("manufacture").style.display = "none";
 	document.getElementById("model").style.display = "none";
 	document.getElementById("view_inventory").style.display = "";
-	//viewinventory();
 }
-
-function viewinventory()
-{
-	$.ajax({
-		type: "POST",
-		url: "carinventory.php", 
-		data:{switchcase : "viewinventory"},
-		success: function(result)
-		{
-			document.getElementById("view_inventory_table").innerHTML = result;
-		}
-	});	
-}
-
-
 
 function buildmanufacturer() {
 	$.ajax({
